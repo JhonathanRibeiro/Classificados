@@ -27,15 +27,26 @@
           $a = new Anuncios();
           $anuncios = $a->getMeusAnuncios();
 
-          foreach($anuncios as $anuncios){
+          foreach($anuncios as $anuncio):
               ?>
              <tr>
-                <td><img src="assets/imagens/anuncios/<?php echo $anuncio['url'] ?>"></td>
+                <td>
+                  <?php if(!empty($anuncio['url'])) { ?>
+                  <img src="assets/imagens/anuncios/<?php echo $anuncio['url'] ?>" height="38">
+                  <?php } else { ?>
+                  <img src="assets/imagens/default.jpg" height="38">
+                  <?php } ?>
+                </td>
                 <td><?php echo $anuncio['titulo'] ?></td>
                 <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
-                <td></td>
+                <td>
+                <a href="editar-anuncio.php?id=<?php echo $anuncio['id']; ?>"  class="btn btn-warning 
+                glyphicon glyphicon-pencil"></a>
+                <a href="excluir-anuncio.php?id=<?php echo $anuncio['id']; ?>" class="btn btn-danger 
+                glyphicon glyphicon-trash"></a>
+                </td>
              </tr>
-          <?php } ?>
+             <?php endforeach; ?>
     </table>
 </div>
 <?php require 'footer.php'; ?>

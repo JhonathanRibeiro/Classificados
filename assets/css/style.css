@@ -1,0 +1,27 @@
+.foto-item {
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+.foto-item img{
+    width: 150px;
+}
+a.link-anuncio {
+  color: #337ab7!important;
+  text-transform: uppercase!important;
+}
+a.link-anuncio:hover {
+    color: #2e86d2;
+    text-decoration: underline!important;
+}
+a.link {
+    color: #fafafa!important;
+   text-transform: uppercase!important;
+}
+a.link:hover {
+    color: #dddddd!important;
+    text-decoration: none!important;
+}

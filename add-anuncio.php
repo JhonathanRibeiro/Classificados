@@ -7,10 +7,27 @@
   <?php
   exit;
  }
+ require 'class/anuncios.class.php';
+ $a = new Anuncios();
+ if(isset($_POST['titulo']) && !empty($_POST['titulo'])) {
+     $titulo    = addslashes($_POST['titulo']);
+     $categoria = addslashes($_POST['categoria']);
+     $valor     = addslashes($_POST['valor']);
+     $descricao = addslashes($_POST['descricao']);
+     $estado    = addslashes($_POST['estado']);
+
+     $a->addAnuncio($titulo, $categoria, $valor, $descricao, $estado);
+  ?>
+  <div class="alert alert-success">
+  Produto adicionado com sucesso!
+  </div>
+  <?php
+ }
+
 ?>
 
 <div class="container">
-  <h2>Meus Anúncios <small>/ Novo Anúncio</small></h2>
+<h2> <a href="meus-anuncios.php" >Meus Anúncios</a> <small>/ Novo Anúncio</small></h2>
 
   <form method="POST" enctype="multipart/form-data">
   
@@ -18,7 +35,18 @@
     <label for="categoria">Categoria:</label>
     <div class="form-group">      
       <select name="categoria" id="categoria" class="form-control">
-        <option></option>
+        <?php 
+         require "class/categorias.class.php";
+          $c = new Categorias();
+          $cats = $c->getLista();
+          foreach($cats as $cat){
+        ?>
+
+         <option value="<?php echo $cat['id']; ?>">
+         <?php echo utf8_encode($cat['nome']); ?>
+         </option>
+
+        <?php } ?>
       </select>
     </div>
    </div>
@@ -40,7 +68,7 @@
 
    <div class="form-group">
     <label for="estado">Estado:</label>
-    <select name="categoria" id="categoria" class="form-contreol">
+    <select name="estado" id="categoria" class="form-control">
         <option value="0">Ruim</option>
         <option value="1">Bom</option>
         <option value="2">Ótimo</option>

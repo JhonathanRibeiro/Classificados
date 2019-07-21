@@ -26,13 +26,15 @@
     <form action="" method="post">
         <div class="form-group">
           <label for="email">E-mail:</label>
-          <input type="email" name="email" id="email" class="form-control" placeholder="Digite seu melhor email..." 
+          <input type="email" name="email" id="email" class="form-control" 
+          autocomplete="off" placeholder="Digite seu melhor email..." 
           aria-describedby="helpId">
           <!-- <small id="helpId" class="text-muted">Digite seu melhor email</small> -->
         </div>
         <div class="form-group">
           <label for="senha">Senha:</label><br>
-          <input type="password" name="senha" id="senha" class="form-control" placeholder="******" 
+          <input type="password" name="senha" id="senha" class="form-control"
+          autocomplete="off" placeholder="******" 
           aria-describedby="helpId">
             <br>
           <input type="submit" value="Entrar" class="btn btn-default">

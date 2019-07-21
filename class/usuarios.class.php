@@ -1,6 +1,17 @@
 <?php
 
  class Usuarios {
+
+   //retorna a quantidade de usuarios que estao
+    //cadastrados no banco de dados.
+    public function getTotalUsuarios() {
+      global $pdo;
+      
+      $sql = $pdo->query("select count(*) as c from tb_usuarios");
+      $row = $sql->fetch();
+
+      return $row['c'];
+  }
  
     public function cadastrar($nome, $email, $senha, $telefone) {
          global $pdo;

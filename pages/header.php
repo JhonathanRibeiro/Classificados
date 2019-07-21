@@ -15,6 +15,7 @@
 
   <style>
   @media (min-width: 768px) {.navbar {border-radius: 0px!important;border: none!important;}}
+  a {color: #333333;} a:hover{text-decoration: none;color: #333333;}
   </style>
 </head>
 <body>
@@ -22,20 +23,20 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="./" class="navbar-brand">Classificados</a>
+      <a href="./" class="navbar-brand link">Classificados</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
     
      <?php if(isset($_SESSION['cLogin']) && !empty($_SESSION['cLogin'])) {?>
 
-      <li><a href="meus-anuncios.php">Meus Anúncios</a></li>
-      <li><a href="logout.php">Sair</a></li>
+      <li><a href="meus-anuncios.php"class="link">Meus Anúncios</a></li>
+      <li><a href="logout.php"class="link">Sair</a></li>
 
      <?php } else {?>
      
-      <li><a href="cadastre-se.php">Cadastre-se</a></li>
-      <li><a href="login.php">Login</a></li>
+      <li><a href="cadastre-se.php" class="link">Cadastre-se</a></li>
+      <li><a href="login.php" class="link">Login</a></li>
      
       <?php } ?>
     </ul>
